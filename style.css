@@ -1,0 +1,62 @@
+/* style.css */
+
+body {
+    background-image: url('./background.png');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position: center;
+    background-color: #6805F2;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, span, li {
+    color: #ffffff!important;
+}
+
+blockquote {
+    border-left: 4px solid var(--theme-color, #6805F2)!important;
+}
+
+button.sidebar-toggle {
+    background: transparent;
+}
+
+.sidebar-toggle span {
+    background-color: var(--theme-color, #fff);
+}
+
+aside.sidebar {
+    background-color: #020659;
+    border-right: 1px solid #6805F2;
+}
+
+.search {
+    border-bottom: 1px solid #6805F2!important;
+}
+
+.input-wrap {
+    position: relative;
+    padding: 1rem .4rem;
+}
+
+.input-wrap input[type='search'] {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding-left: 2rem;
+}
+
+.input-wrap .fa-search {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+    pointer-events: none;
+}
+
+em {
+    color: #6805F2!important;
+}
+
+.CodeMirror-lines, .codeMirrorEditor, .codeInput {
+    color: black!important;
+}
