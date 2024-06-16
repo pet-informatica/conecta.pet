@@ -1,4 +1,5 @@
 /* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 body {
     background-image: url('./background.png');
@@ -6,6 +7,7 @@ body {
     background-repeat: repeat-y;
     background-position: center;
     background-color: #6805F2;
+    font-family: "Sora", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, p, a, span, li {
@@ -55,8 +57,4 @@ aside.sidebar {
 
 em {
     color: #6805F2!important;
-}
-
-.CodeMirror-lines, .codeMirrorEditor, .codeInput {
-    color: black!important;
 }
