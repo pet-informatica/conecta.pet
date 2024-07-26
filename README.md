@@ -1,1 +1,0 @@
-Este readme foi criado apenas para sanar uma curiosidade de eliab
