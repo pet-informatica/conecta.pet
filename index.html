@@ -7,6 +7,7 @@
   <meta name="description" content="Conecta.pet é um projeto desenvolvido pelo pet informática do centro de informática da UFPE no campus Recife, neste projeto disponibilizamos um curso e certificação em python para pessoas interessadas.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Adiciona Font Awesome -->
 </head>
@@ -35,8 +36,12 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <!-- Emojis -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-  <!-- Script para a barra de busca -->
-  <script>
+  <!-- Skulpt -->
+  <script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt-stdlib.js"></script>
+  
+<!-- Script para a barra de busca -->
+<script>
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new MutationObserver(function() {
         const searchContainer = document.querySelector('.input-wrap');
@@ -49,6 +54,36 @@
 
       observer.observe(document.body, { childList: true, subtree: true });
     });
-  </script>
+</script>
+<script>
+  function runPythonCode() {
+      var prog = document.getElementById("code").value;
+      var mypre = document.getElementById("output");
+      mypre.innerHTML = '';
+      Sk.pre = "output";
+      Sk.configure({output: outf, read: builtinRead});
+      var myPromise = Sk.misceval.asyncToPromise(function() {
+          return Sk.importMainWithBody("<stdin>", false, prog, true);
+      });
+      myPromise.then(function(mod) {
+          console.log('success');
+      },
+      function(err) {
+          mypre.innerHTML = err.toString();
+      });
+  }
+
+  function outf(text) {
+      var mypre = document.getElementById("output");
+      mypre.innerHTML = mypre.innerHTML + text;
+  }
+
+  function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined) {
+          throw "File not found: '" + x + "'";
+      }
+      return Sk.builtinFiles["files"][x];
+  }
+</script>
 </body>
 </html>

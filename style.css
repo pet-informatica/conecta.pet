@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 body {
-    background-image: url('./background.png');
+    /* background-image: url('./background.png'); */
     background-size: cover;
     background-repeat: repeat-y;
     background-position: center;
-    background-color: #6805F2;
+    background-color: #242535;
     font-family: "Sora", sans-serif;
 }
 
@@ -15,7 +15,7 @@ h1, h2, h3, h4, h5, h6, p, a, span, li {
 }
 
 blockquote {
-    border-left: 4px solid var(--theme-color, #6805F2)!important;
+    border-left: 4px solid var(--theme-color, #1d063d)!important;
 }
 
 button.sidebar-toggle {
@@ -27,12 +27,12 @@ button.sidebar-toggle {
 }
 
 aside.sidebar {
-    background-color: #020659;
-    border-right: 1px solid #6805F2;
+    background-color: #242535;
+    border-right: 1px solid #1d063d;
 }
 
 .search {
-    border-bottom: 1px solid #6805F2!important;
+    border-bottom: 1px solid #1d063d!important;
 }
 
 .input-wrap {
@@ -55,6 +55,22 @@ aside.sidebar {
     pointer-events: none;
 }
 
-em {
-    color: #6805F2!important;
+em, .markdown-section strong {
+    color: #6507e9!important;
+}
+
+td {
+    color: #fff;
+}
+
+th {
+    color: #fff;
+}
+
+tr:nth-child(even) td {
+    color: #1d063d;
+}
+
+.app-sub-sidebar li:before {
+    content: "• ";
 }

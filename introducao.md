@@ -220,3 +220,45 @@ print("printei")
 14. Crie um programa que receba uma temperatura em Celsius, a converta e exiba usando as escalas Kelvin e Fahrenheit [entenda mais sobre essa conversão aqui](http://www.infoescola.com/fisica/conversao-de-escalas-termometricas/). 
     K=C+273
     F=1,8C+32
+
+### Teste seu código Python
+
+<textarea id="code" rows="10" cols="50">
+print("Hello, world!")
+</textarea>
+<br>
+<button onclick="runPythonCode()">Executar Código</button>
+<pre id="output"></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/skulpt/dist/skulpt-stdlib.js"></script>
+<script>
+  function runPythonCode() {
+      var prog = document.getElementById("code").value;
+      var mypre = document.getElementById("output");
+      mypre.innerHTML = '';
+      Sk.pre = "output";
+      Sk.configure({output: outf, read: builtinRead});
+      var myPromise = Sk.misceval.asyncToPromise(function() {
+          return Sk.importMainWithBody("<stdin>", false, prog, true);
+      });
+      myPromise.then(function(mod) {
+          console.log('success');
+      },
+      function(err) {
+          mypre.innerHTML = err.toString();
+      });
+  }
+
+  function outf(text) {
+      var mypre = document.getElementById("output");
+      mypre.innerHTML = mypre.innerHTML + text;
+  }
+
+  function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined) {
+          throw "File not found: '" + x + "'";
+      }
+      return Sk.builtinFiles["files"][x];
+  }
+</script>
